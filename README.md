@@ -10,5 +10,5 @@
  
 # Download
 
-Clone this repository or [download the .unitypackage](/leocub58/Tilemap-to-PNG-Unity/raw/master/TilemapToPng.unitypackage)
+Clone this repository or [download the .unitypackage](https://github.com/leocub58/Tilemap-to-PNG-Unity/raw/master/TilemapToPng.unitypackage)
 
