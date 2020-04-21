@@ -358,11 +358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef4da977fd87944bbc8976de672eb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 0}
-  minX: -33
-  maxX: 34
-  minY: -10
-  maxY: 11
   ImagenLista: {fileID: 0}
 --- !u!483693784 &1975108509
 TilemapRenderer:
