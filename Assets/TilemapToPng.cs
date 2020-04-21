@@ -22,18 +22,18 @@ public class TilemapToPngEditor : Editor
 
         if (GTM.ImagenLista == null)
         {
-            if (GUILayout.Button("Empacar como PNG"))
+            if (GUILayout.Button("Create png"))
             {
                 GTM.Empacar();
             }
         }
         else
         {
-            GUILayout.Label("Nombre del archivo");
+            GUILayout.Label("File name");
             nombre = GUILayout.TextField(nombre);
             if(nombre.Length > 0)
             {
-                if (GUILayout.Button("Exportar archivo"))
+                if (GUILayout.Button("Export png"))
                 {
                     GTM.ExportarPng(nombre);
                 }
@@ -72,11 +72,7 @@ public class TilemapToPngEditor : Editor
             for (int y = 0; y < tm.size.y; y++)
             {
                 Vector3Int pos = new Vector3Int(-x, -y, 0);
-                if (tm.GetSprite(pos) == null)
-                {
-                    print("no hay sprite en esta pos");
-                }
-                else
+                if (tm.GetSprite(pos) != null)
                 {
                     SpriteCualquiera = tm.GetSprite(pos); //seleccionamos un sprite cualquiera para más tarde saber las dimensiones de los sprites
                     if (minX > pos.x)
@@ -90,11 +86,7 @@ public class TilemapToPngEditor : Editor
                 }
 
                 pos = new Vector3Int(x, y, 0);
-                if (tm.GetSprite(pos) == null)
-                {
-                    print("no hay sprite en esta pos");
-                }
-                else
+                if (tm.GetSprite(pos) != null)
                 {
                     if (maxX < pos.x)
                     {
@@ -131,11 +123,7 @@ public class TilemapToPngEditor : Editor
         {
             for(int y = minY; y <= maxY; y++)
             {
-                if (tm.GetSprite(new Vector3Int(x, y, 0)) == null)
-                {
-                    print("Bloque vacio");
-                }
-                else
+                if (tm.GetSprite(new Vector3Int(x, y, 0)) != null)
                 {
                     //mapeamos los pixeles para que el minX = 0 y minY = 0
                     Imagen.SetPixels((x - minX) * (int)width, (y - minY) * (int)height, (int)width, (int)height, GetCurrentSprite(tm.GetSprite(new Vector3Int(x, y, 0))).GetPixels()   );
@@ -171,6 +159,7 @@ public class TilemapToPngEditor : Editor
              Directory.CreateDirectory(dirPath);
          }
          File.WriteAllBytes(dirPath + nombre + ".png", bytes);
+        AssetDatabase.Refresh();
         ImagenLista = null;
      }
 
