@@ -8,3 +8,6 @@
  3- Set name and click export
  ```
  
+# Download
+
+Clone this repository or download the .unitypackage
