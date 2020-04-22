@@ -18,4 +18,4 @@ Clone this repository or [download the .unitypackage](https://github.com/leocub5
 you need to put the texture in "readable"
 
 ```
- [readable settings](https://user-images.githubusercontent.com/48869211/79986523-13ce1f80-84a4-11ea-8f17-9ef5397ca909.png)
+ ![readable settings](https://user-images.githubusercontent.com/48869211/79986523-13ce1f80-84a4-11ea-8f17-9ef5397ca909.png)
