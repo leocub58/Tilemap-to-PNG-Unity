@@ -19,3 +19,15 @@ you need to put the texture in "readable"
 
 ```
  ![readable settings](https://user-images.githubusercontent.com/48869211/79986523-13ce1f80-84a4-11ea-8f17-9ef5397ca909.png)
+
+# FOLLOW ME
+
+```
+Follow me on Youtube, I upload tutorials and many interesting things!
+
+I also use Reddit, where I upload everything I do.
+Greetings, I hope it works well for you!
+
+```
+[YouTube](https://www.youtube.com/user/leocub58)
+[Reddit](https://www.reddit.com/user/leocub58)
