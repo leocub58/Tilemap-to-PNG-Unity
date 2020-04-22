@@ -12,3 +12,11 @@
 
 Clone this repository or [download the .unitypackage](https://github.com/leocub58/Tilemap-to-PNG-Unity/raw/master/TilemapToPng.unitypackage)
 
+# IMPORTANT
+
+```
+you need to put the texture in "readable"
+
+![readable settings](https://user-images.githubusercontent.com/48869211/79986523-13ce1f80-84a4-11ea-8f17-9ef5397ca909.png)
+
+ ```
