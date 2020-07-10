@@ -49,19 +49,16 @@ public class TilemapToPngEditor : Editor
 
 
 
-    public class TilemapToPng : MonoBehaviour
+public class TilemapToPng : MonoBehaviour
 {
 
     Tilemap tm;
 
-    int minX = 0;
-    int maxX = 0;
-    int minY = 0;
-    int maxY = 0;
+    int minX,maxX,minY,maxY;
     
-    public Texture2D ImagenLista;
+    public Texture2D Img;
 
-    public void Empacar()
+    public void Pack ()
     {
         tm = GetComponent<Tilemap>();
         Sprite SpriteCualquiera = null;
@@ -107,15 +104,15 @@ public class TilemapToPngEditor : Editor
 
 
         //creamos una textura con el tamaño multiplicado por el numero de celdas
-        Texture2D Imagen = new Texture2D((int)width * tm.size.x, (int)height * tm.size.y);
+        Texture2D ImagenCreada = new Texture2D((int)width * tm.size.x, (int)height * tm.size.y);
 
         //Asignamos toda la imagen invisible
-        Color[] invisible = new Color[Imagen.width * Imagen.height];
+        Color[] invisible = new Color[ImagenCreada.width * ImagenCreada.height];
         for (int i = 0; i < invisible.Length; i++)
         {
             invisible[i] = new Color(0f, 0f, 0f, 0f);
         }
-        Imagen.SetPixels(0,0,Imagen.width, Imagen.height, invisible);
+        ImagenCreada.SetPixels(0,0,ImagenCreada.width, ImagenCreada.height, invisible);
         
 
         //Ahora asignamos a cada bloque sus respectivos pixeles
@@ -126,13 +123,13 @@ public class TilemapToPngEditor : Editor
                 if (tm.GetSprite(new Vector3Int(x, y, 0)) != null)
                 {
                     //mapeamos los pixeles para que el minX = 0 y minY = 0
-                    Imagen.SetPixels((x - minX) * (int)width, (y - minY) * (int)height, (int)width, (int)height, GetCurrentSprite(tm.GetSprite(new Vector3Int(x, y, 0))).GetPixels()   );
+                    ImagenCreada.SetPixels((x - minX) * (int)width, (y - minY) * (int)height, (int)width, (int)height, GetCurrentSprite(tm.GetSprite(new Vector3Int(x, y, 0))).GetPixels()   );
                 }
             }
         }
-        Imagen.Apply();
+        ImagenCreada.Apply();
 
-        ImagenLista = Imagen; //Almacenamos la textura de la imagen lista
+        Img = ImagenCreada; //Almacenamos la textura de la imagen lista
     }
 
     Texture2D GetCurrentSprite(Sprite sprite) //metodo para obtener el sprite recortado tal y como lo ponemos
@@ -150,17 +147,17 @@ public class TilemapToPngEditor : Editor
         return textura;
     }
 
-     public void ExportarPng (string nombre) //metodo que exporta como png
+     public void ExportAsPng (string name) //metodo que exporta como png
      {
-         byte[] bytes = ImagenLista.EncodeToPNG();
+         byte[] bytes = Img.EncodeToPNG();
          var dirPath = Application.dataPath + "/Exported Tilemaps/";
          if (!Directory.Exists(dirPath))
          {
              Directory.CreateDirectory(dirPath);
          }
-         File.WriteAllBytes(dirPath + nombre + ".png", bytes);
+         File.WriteAllBytes(dirPath + name + ".png", bytes);
         AssetDatabase.Refresh();
-        ImagenLista = null;
+        Img = null;
      }
 
 }
