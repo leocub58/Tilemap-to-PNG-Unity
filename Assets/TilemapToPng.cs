@@ -20,11 +20,11 @@ public class TilemapToPngEditor : Editor
 
         //DrawDefaultInspector();
 
-        if (GTM.ImagenLista == null)
+        if (GTM.Img == null)
         {
             if (GUILayout.Button("Create png"))
             {
-                GTM.Empacar();
+                GTM.Pack();
             }
         }
         else
@@ -35,7 +35,7 @@ public class TilemapToPngEditor : Editor
             {
                 if (GUILayout.Button("Export png"))
                 {
-                    GTM.ExportarPng(nombre);
+                    GTM.ExportAsPng(nombre);
                 }
             }
             
